@@ -21,10 +21,10 @@ Antes de começar, certifique-se de ter os seguintes itens instalados:
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/DB_ACCOMMODATION.git
+   git clone https://github.com/AngeloGagno/DB_Accommodation_Avantio.git
     ```
 2. **Acessar a pasta src e executar o codigo**
     ```bash
-   cd DB_ACCOMMODATION/src
+   cd DB_Accommodation_Avantio/src
    python main.py 
     ```
