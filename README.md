@@ -14,7 +14,7 @@ Antes de começar, certifique-se de ter os seguintes itens instalados:
 
 - [Python 3.8+](https://www.python.org/downloads/)
 - Banco de dados de sua preferência (PostgreSQL, SQLite, MySQL)
-- Dependências listadas no arquivo `requirements.txt`
+- Possuir Docker na máquina
 
 ## Configuração do Ambiente
 
@@ -23,8 +23,12 @@ Antes de começar, certifique-se de ter os seguintes itens instalados:
    ```bash
    git clone https://github.com/AngeloGagno/DB_Accommodation_Avantio.git
     ```
-2. **Acessar a pasta src e executar o codigo**
+
+2. **Criar a pasta .env, enviar a URL de conexao com o banco e o API key da avantio**
     ```bash
-   cd DB_Accommodation_Avantio/src
-   python main.py 
+    touch .env 
+    ```
+3. **Executar o docker compose**
+    ```bash
+   docker-compose up --build
     ```

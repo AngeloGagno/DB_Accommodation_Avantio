@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: db_accommodation
+    env_file:
+      - .env  # Certifica que o Docker Compose usa as variáveis do arquivo .env
+    volumes:
+      - ./src:/src  # Mapeia a pasta src local para o container
+    working_dir: /src
+    ports:
+      - "8000:8000"  # Substitua pela porta usada pela sua aplicação, se necessário
+    command: ["python", "main.py"]
