@@ -21,7 +21,8 @@ jobs:
       run: |
         mkdir -p ~/.ssh
         chmod 700 ~/.ssh
-        ssh-keyscan -H 192.168.0.255 >> ~/.ssh/known_hosts
+        ssh-keyscan -p 2222 -H 192.168.0.255 >> ~/.ssh/known_hosts
+
 
     # Etapa 3: Instalar o Docker Compose
     - name: Install Docker Compose
