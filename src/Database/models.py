@@ -6,6 +6,7 @@ class BD_Acomodacao(Base):
     __tablename__ = "accommodation"
     id_acc = Column(String,primary_key=True)
     status = Column(String)
+    id_proprietario = Column(String)
     nome_acomodacao = Column(String)
     tamanho = Column(String)
     cama = Column(String)

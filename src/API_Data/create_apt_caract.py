@@ -62,6 +62,11 @@ def get_location(api_data):
 def get_status(api_data):
     return api_data['status']
 
+def owner_id(api_data):
+    if api_data.get('owner','') == '' :
+       return ''
+    else: return api_data['owner']['id']
+
 def dataframe_accomodation():
     aptos = []
     for id_ in fetch_all_accommodations():
@@ -77,7 +82,8 @@ def dataframe_accomodation():
         capacidade = get_capacity(header)
         count_banheiros = get_bathroom_count(header)
         count_quartos = get_bedrooms_count(header)
-        apto = {'id':id_acc,'nome':nome,'status':status,'tamanho':area,'camas':camas,'qtde_quartos':count_quartos,'qtde_banheiros':count_banheiros,
+        owner = owner_id(header)
+        apto = {'id':id_acc,'nome':nome,'id_proprietario': owner,'status':status,'tamanho':area,'camas':camas,'qtde_quartos':count_quartos,'qtde_banheiros':count_banheiros,
         'codigo_pais':country,'cidade':city,'endereco':address,
         'bairro':district,'latitude':lat,'longitude':lon,
         'capacidade':capacidade
