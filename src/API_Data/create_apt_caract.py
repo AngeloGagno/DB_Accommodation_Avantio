@@ -2,7 +2,7 @@ from API_Data.fetch_accomodations import fetch_all_accommodations
 from API_Data.get_accomodation import get_api_data
 import requests
 import json
-
+import re
 def get_accomodation_description(id):
         URL = f"https://api.avantio.pro/pms/v2/accommodations/{id}"
         header = get_api_data()
@@ -66,6 +66,17 @@ def owner_id(api_data):
     if api_data.get('owner','') == '' :
        return ''
     else: return api_data['owner']['id']
+    
+def extract_zone(api_data):
+    name = get_name(api_data)
+    regex = re.search(r'\(([^)]+)\)',name)
+    if regex:
+        return regex.group(1)
+    else: return None
+
+def cleaned_acc_name(api_data):
+    name = get_name(api_data)
+    return re.sub(r'\s*\([^)]+\)', '', name)
 
 def dataframe_accomodation():
     aptos = []
@@ -73,7 +84,8 @@ def dataframe_accomodation():
         id_acc = str(id_)
         header = get_accomodation_description(id_)['data']
         status = get_status(header)
-        nome = get_name(header)
+        nome = cleaned_acc_name(header)
+        zone = extract_zone(header)
         area = get_area_m2(header)
         country,city,address,district = get_location(header)
         lat = float(get_coordinates(header).get('lat',''))
@@ -83,7 +95,7 @@ def dataframe_accomodation():
         count_banheiros = get_bathroom_count(header)
         count_quartos = get_bedrooms_count(header)
         owner = owner_id(header)
-        apto = {'id':id_acc,'nome':nome,'id_proprietario': owner,'status':status,'tamanho':area,'camas':camas,'qtde_quartos':count_quartos,'qtde_banheiros':count_banheiros,
+        apto = {'id':id_acc,'nome':nome,'zona':zone,'id_proprietario': owner,'status':status,'tamanho':area,'camas':camas,'qtde_quartos':count_quartos,'qtde_banheiros':count_banheiros,
         'codigo_pais':country,'cidade':city,'endereco':address,
         'bairro':district,'latitude':lat,'longitude':lon,
         'capacidade':capacidade

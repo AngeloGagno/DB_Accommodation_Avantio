@@ -6,6 +6,7 @@ def commit_data_on_db(apto,db:Session):
         registros = BD_Acomodacao(
                 id_acc = item['id'],
                 nome_acomodacao=item['nome'],
+                zona=item['zona'],
                 id_proprietario = item['id_proprietario'],
                 status = item['status'],
                 tamanho=item['tamanho'],

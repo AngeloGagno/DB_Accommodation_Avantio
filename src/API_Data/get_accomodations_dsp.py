@@ -18,7 +18,3 @@ def dataframe_accomodation():
         name = header['name']
         dictionary[id_] = name
     return dictionary
-
-if __name__ == "__main__":
-
-    print(dataframe_accomodation())

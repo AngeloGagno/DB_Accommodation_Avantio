@@ -1,6 +1,7 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime
+from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.sql import func
 from Database.database import Base
+
 
 class BD_Acomodacao(Base):
     __tablename__ = "accommodation"
@@ -8,6 +9,7 @@ class BD_Acomodacao(Base):
     status = Column(String)
     id_proprietario = Column(String)
     nome_acomodacao = Column(String)
+    zona = Column(String,nullable=True)
     tamanho = Column(String)
     cama = Column(String)
     qtde_quartos = Column(Integer)
