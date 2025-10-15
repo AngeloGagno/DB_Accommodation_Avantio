@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float
-from sqlalchemy.sql import func
-from Database.database import Base
+from DB_Accommodation_Avantio.src.Database.database import Base
 
 
 class BD_Acomodacao(Base):

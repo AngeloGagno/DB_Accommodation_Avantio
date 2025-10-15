@@ -1,4 +1,4 @@
-from Database.models import BD_Acomodacao
+from DB_Accommodation_Avantio.src.Database.models import BD_Acomodacao
 from sqlalchemy.orm import Session
 
 def commit_data_on_db(apto,db:Session):

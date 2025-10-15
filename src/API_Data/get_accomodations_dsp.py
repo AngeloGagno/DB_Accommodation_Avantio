@@ -1,5 +1,5 @@
-from fetch_accomodations import fetch_all_accommodations
-from get_accomodation import get_api_data
+from DB_Accommodation_Avantio.src.API_Data.fetch_accomodations import fetch_all_accommodations
+from DB_Accommodation_Avantio.src.API_Data.get_accomodation import get_api_data
 import requests
 
 def get_accomodation_description(id):

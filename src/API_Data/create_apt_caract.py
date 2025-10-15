@@ -1,5 +1,5 @@
-from API_Data.fetch_accomodations import fetch_all_accommodations
-from API_Data.get_accomodation import get_api_data
+from DB_Accommodation_Avantio.src.API_Data.fetch_accomodations import fetch_all_accommodations
+from DB_Accommodation_Avantio.src.API_Data.get_accomodation import get_api_data
 import requests
 import json
 import re

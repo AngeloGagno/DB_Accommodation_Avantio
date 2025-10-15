@@ -1,4 +1,4 @@
-from API_Data.get_accomodation import get_accomodations
+from DB_Accommodation_Avantio.src.API_Data.get_accomodation import get_accomodations
 
 def fetch_all_accommodations():
     """Percorre todas as páginas da API para coletar todas as acomodações"""
