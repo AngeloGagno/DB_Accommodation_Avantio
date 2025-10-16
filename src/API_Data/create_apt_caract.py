@@ -1,4 +1,3 @@
-from DB_Accommodation_Avantio.src.API_Data.fetch_accomodations import fetch_all_accommodations
 from DB_Accommodation_Avantio.src.API_Data.get_accomodation import get_api_data
 import requests
 import json
@@ -78,9 +77,9 @@ def cleaned_acc_name(api_data):
     name = get_name(api_data)
     return re.sub(r'\s*\([^)]+\)', '', name)
 
-def dataframe_accomodation():
+def dataframe_accomodation(accommodations:list):
     aptos = []
-    for id_ in fetch_all_accommodations():
+    for id_ in accommodations:
         id_acc = str(id_)
         header = get_accomodation_description(id_)['data']
         status = get_status(header)
